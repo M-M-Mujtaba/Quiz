@@ -1,0 +1,89 @@
+.card-primary {
+  background-color: #172b4d;
+  color: azure;
+  height: 450px;
+}
+
+.resize-none {
+  resize: none;
+}
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.cursor-clickable:hover {
+  cursor: pointer !important;
+}
+.limited-height {
+  height: 300px !important;
+}
+.limited-width {
+  width: 70% !important;
+}
+
+.person-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.suggestion-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.login-back {
+  position: relative;
+  min-height: 100vh;
+}
+.login-back::before {
+  content: "";
+  background-color: black;
+  background-image: url("../img/theme/login-back.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.user-logo {
+  width: 40vw;
+  height: 13vw;
+  min-width: 200px;
+  min-height: 100px;
+  padding-top: 50px;
+}
+
+.user-bg {
+  background-image: linear-gradient(#cfd9df, #e2ebf0);
+  min-height: 100vh;
+}
+
+.user-logout {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.user-logout:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.height-80vh {
+  height: 80vh !important;
+}
+
+.ranking-table .table-responsive {
+  height: 350px;
+}
+
+.hover-effect:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

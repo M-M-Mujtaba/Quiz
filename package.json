@@ -1,0 +1,65 @@
+{
+  "name": "backrowstats",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "compile-sass": "node-sass src/assets/scss/argon-dashboard-react.scss src/assets/css/argon-dashboard-react.css",
+    "minify-sass": "node-sass src/assets/scss/argon-dashboard-react.scss src/assets/css/argon-dashboard-react.min.css --output-style compressed",
+    "map-sass": "node-sass src/assets/scss/argon-dashboard-react.scss src/assets/css/argon-dashboard-react.css --source-map true"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.12.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@react-icons/all-files": "^4.1.0",
+    "bootstrap": "^4.5.3",
+    "canvasjs": "^1.8.3",
+    "chart.js": "2.9.3",
+    "classnames": "2.2.6",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "moment": "2.24.0",
+    "node-sass": "^4.14.1",
+    "nouislider": "14.1.1",
+    "react": "16.12.0",
+    "react-bootstrap": "^1.4.0",
+    "react-chartjs-2": "2.9.0",
+    "react-charts": "^2.0.0-beta.7",
+    "react-copy-to-clipboard": "5.0.2",
+    "react-datepicker": "^3.3.0",
+    "react-datetime": "2.16.3",
+    "react-day-picker": "^7.4.8",
+    "react-dom": "16.12.0",
+    "react-dropdown": "^1.9.0",
+    "react-file-base64": "^1.0.3",
+    "react-google-maps": "9.4.5",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "^3.4.1",
+    "react-select": "^3.1.1",
+    "react-spinners": "^0.9.0",
+    "reactstrap": "8.4.1"
+  },
+  "devDependencies": {
+    "@types/googlemaps": "3.39.2",
+    "@types/markerclustererplus": "2.1.33",
+    "@types/react": "16.9.19",
+    "eslint-plugin-flowtype": "3.13.0",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.8",
+    "typescript": "3.7.5"
+  }
+}
