@@ -2,7 +2,7 @@ import React from "react";
 import Header from "components/Headers/Header.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import graph from "C:/Users/mujta/OneDrive/Documents/RugbyProject-main/src/assets/img/Extras/score.png"
+import graph from "C:/Users/mujta/OneDrive/Documents/Quiz/src/assets/img/Extras/score.png"
 
 import Select from 'react-select';
 

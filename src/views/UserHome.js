@@ -20,6 +20,7 @@ import {
   Button,
 } from "reactstrap";
 
+import { Link } from "react-router-dom";
 import logo from "../assets/img/brand/logo.png";
 
 export class UserHome extends Component {
@@ -92,17 +93,36 @@ export class UserHome extends Component {
             top
           />
           <CardBody>
-            <CardTitle>Card title</CardTitle>
+            <CardTitle>Quiz 1</CardTitle>
             <CardText>
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
+                <h3>7/10</h3>
+            </CardText>
+
+          </CardBody>
+        </Card>
+        </Col>
+
+        <Col lg="4" xl ="3" md="6" xs="12">
+        <Card className="m-2">
+          <CardImg
+            alt="..."
+            src= "https://webengage.com/blog/wp-content/uploads/sites/4/2018/04/How-to-Use-an-Interactive-Quiz-to-Boost-Your-Online-Conversions.png"          
+            top
+          />
+          <CardBody>
+            <CardTitle>Quiz 2</CardTitle>
+            <CardText>
+                Timing:   19/12 7: 30 pm<br></br>
+                Duration: 30 min
+
             </CardText>
             <Button
               color="primary"
               href="#pablo"
               onClick={e => e.preventDefault()}
+
             >
-              Go somewhere
+                <Link to="/User/attempt">Attempt</Link>
             </Button>
           </CardBody>
         </Card>
@@ -118,134 +138,17 @@ export class UserHome extends Component {
           <CardBody>
             <CardTitle>Card title</CardTitle>
             <CardText>
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
+            Timing:   27/12 7: 30 pm<br></br>
+            Duration: 30 min
             </CardText>
             <Button
-              color="primary"
+              disabled
+              color="secondary"
               href="#pablo"
-              onClick={e => e.preventDefault()}
-            >
-              Go somewhere
-            </Button>
-          </CardBody>
-        </Card>
-        </Col>
 
-        <Col lg="4" xl ="3" md="6" xs="12">
-        <Card className="m-2">
-          <CardImg
-            alt="..."
-            src= "https://webengage.com/blog/wp-content/uploads/sites/4/2018/04/How-to-Use-an-Interactive-Quiz-to-Boost-Your-Online-Conversions.png"          
-            top
-          />
-          <CardBody>
-            <CardTitle>Card title</CardTitle>
-            <CardText>
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
-            </CardText>
-            <Button
-              color="primary"
-              href="#pablo"
               onClick={e => e.preventDefault()}
             >
-              Go somewhere
-            </Button>
-          </CardBody>
-        </Card>
-        </Col>
-
-        <Col lg="4" xl ="3" md="6" xs="12">
-        <Card className="m-2">
-          <CardImg
-            alt="..."
-            src= "https://webengage.com/blog/wp-content/uploads/sites/4/2018/04/How-to-Use-an-Interactive-Quiz-to-Boost-Your-Online-Conversions.png"          
-            top
-          />
-          <CardBody>
-            <CardTitle>Card title</CardTitle>
-            <CardText>
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
-            </CardText>
-            <Button
-              color="primary"
-              href="#pablo"
-              onClick={e => e.preventDefault()}
-            >
-              Go somewhere
-            </Button>
-          </CardBody>
-        </Card>
-        </Col>
-        <Col lg="4" xl ="3" md="6" xs="12">
-        <Card className="m-2">
-          <CardImg
-            alt="..."
-            src= "https://webengage.com/blog/wp-content/uploads/sites/4/2018/04/How-to-Use-an-Interactive-Quiz-to-Boost-Your-Online-Conversions.png"          
-            top
-          />
-          <CardBody>
-            <CardTitle>Card title</CardTitle>
-            <CardText>
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
-            </CardText>
-            <Button
-              color="primary"
-              href="#pablo"
-              onClick={e => e.preventDefault()}
-            >
-              Go somewhere
-            </Button>
-          </CardBody>
-        </Card>
-        </Col>
-
-        <Col lg="4" xl ="3" md="6" xs="12">
-        <Card className="m-2">
-          <CardImg
-            alt="..."
-            src= "https://webengage.com/blog/wp-content/uploads/sites/4/2018/04/How-to-Use-an-Interactive-Quiz-to-Boost-Your-Online-Conversions.png"          
-            top
-          />
-          <CardBody>
-            <CardTitle>Card title</CardTitle>
-            <CardText>
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
-            </CardText>
-            <Button
-              color="primary"
-              href="#pablo"
-              onClick={e => e.preventDefault()}
-            >
-              Go somewhere
-            </Button>
-          </CardBody>
-        </Card>
-        </Col>
-
-        <Col lg="4" xl ="3" md="6" xs="12">
-        <Card className="m-2">
-          <CardImg
-            alt="..."
-            src= "https://webengage.com/blog/wp-content/uploads/sites/4/2018/04/How-to-Use-an-Interactive-Quiz-to-Boost-Your-Online-Conversions.png"          
-            top
-          />
-          <CardBody>
-            <CardTitle>Card title</CardTitle>
-            <CardText>
-              Some quick example text to build on the card title and make up
-              the bulk of the card's content.
-            </CardText>
-            <Button
-              color="primary"
-              href="#pablo"
-              onClick={e => e.preventDefault()}
-            >
-              Go somewhere
+              Attempt
             </Button>
           </CardBody>
         </Card>

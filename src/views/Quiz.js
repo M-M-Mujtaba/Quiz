@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "components/Headers/Header.js";
 import Select from 'react-select';
-import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import {
     Container,
@@ -23,7 +22,7 @@ import {
   import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 
-  const quizez = ['Quiz1  "12/09" 30 min', 'Quiz2 "17/09" 15 min', 'Quiz3 "1/10" 45 min']
+  const quizez = ['Quiz1  "12/09" 30 min', 'Quiz2 "17/09" 15 min', 'Quiz3 "11/10" 45 min']
 
   const MCQs = [  { label: "1", value: 1 },
   { label: "2", value: 2 },
@@ -161,7 +160,7 @@ export class Quiz extends React.Component {
             <CardText>
             
             {quizez.map((quizez) =>
-                <li>{quizez}    <EditIcon style={{ color: 'yellow' }}/>  <RemoveCircleIcon style={{ color: 'red' }}/></li>
+                <li>{quizez}  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; <EditIcon style={{ color: 'yellow' }}/> &nbsp; &nbsp;  <RemoveCircleIcon style={{ color: 'red' }}/></li>
             )}
             </CardText>
            
@@ -204,7 +203,13 @@ export class Quiz extends React.Component {
             <br></br>
         </div>
 
-        <button>Assign Quiz</button>
+        <Button
+              color="primary"
+              href="#pablo"
+              onClick={e => e.preventDefault()}
+            >
+              Assign Quiz
+            </Button>
         
         </Col>
       </Row>
