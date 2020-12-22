@@ -121,6 +121,17 @@ export class Attempt extends React.Component {
                           >
                             Upload file
                           </Button>
+                          <Row></Row>
+                          <br></br> <br></br> <br></br>
+                          <Row>
+                          <Button
+                            color="primary"
+                            href="#pablo"
+                            onClick={e => e.preventDefault()}
+                          >
+                            Submit Quiz
+                          </Button>
+                          </Row>
           </Form>
           </Container>
         )
