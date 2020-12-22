@@ -42,6 +42,14 @@ import {
   { label: "5", value: 5 },
 ]
 
+const Attach = [ 
+  { label: "1", value: 1 },
+{ label: "2", value: 2 },
+{ label: "3", value: 3 }, 
+{ label: "4", value: 4 },
+{ label: "5", value: 5 },
+]
+
 const Easy = [{ label: "1", value: 1 },
 { label: "2", value: 2 },
 { label: "3", value: 3 }, 
@@ -176,6 +184,9 @@ export class Quiz extends React.Component {
             Subjective
             <Select options = {Sub}  />
             <br></br><br></br>
+            Attachments
+            <Select options = {Attach}  />
+            <br></br><br></br>
             </div>
             <label for="Quizday">Quizday:</label>
                 <input type="date" id="quizday" name="quizday"/>
@@ -183,7 +194,6 @@ export class Quiz extends React.Component {
                 <form action="/action_page.php">
                     <label for="appt">Select a time:</label>
                     <input type="time" id="appt" name="appt"/>
-                    <input type="submit" value="Submit"/>
                 </form>
         </Col>
         <Col lg="4" xl ="4" md="6" xs="12">
