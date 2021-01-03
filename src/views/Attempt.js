@@ -17,11 +17,92 @@ import{
   } from "reactstrap"
 
 export class Attempt extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        questions: [],
+        index: 3,
+        time: {}, 
+        seconds: 10,
+
+
+      }
+      this.timer = 0;
+      this.startTimer = this.startTimer.bind(this);
+      this.countDown = this.countDown.bind(this);
+    }
+    secondsToTime(secs){
+      let hours = Math.floor(secs / (60 * 60));
+  
+      let divisor_for_minutes = secs % (60 * 60);
+      let minutes = Math.floor(divisor_for_minutes / 60);
+  
+      let divisor_for_seconds = divisor_for_minutes % 60;
+      let seconds = Math.ceil(divisor_for_seconds);
+  
+      let obj = {
+        "h": hours,
+        "m": minutes,
+        "s": seconds
+      };
+      return obj;
+    }
+    componentDidMount(){
+      this.mounted = true;
+
+      var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+
+      fetch("http://127.0.0.1:5000/AttemptQuiz/?quiz=1", requestOptions)
+        .then(response => response.json())
+        .then(result => {console.log(result)
+          this.setState({questions: result.Result,})
+          console.log(this.state.questions)
+        
+        })
+        .catch(error => console.log('error', error));
+      let timeLeftVar = this.secondsToTime(this.state.seconds);
+      this.setState({ time: timeLeftVar });
+    }
+    componentWillUnmount(){
+      this.mounted = false;
+    }
+    startTimer() {
+      if (this.timer == 0 && this.state.seconds > 0) {
+        this.timer = setInterval(this.countDown, 1000);
+      }
+    }
+    countDown() {
+      // Remove one second, set state so a re-render happens.
+      let seconds = this.state.seconds - 1;
+      this.setState({
+        time: this.secondsToTime(seconds),
+        seconds: seconds,
+      });
+      
+      // Check if we're at zero.
+      if (seconds == 0) { 
+        clearInterval(this.timer);
+        window.alert("Your time is over")
+        window.location.href = "/";
+      }
+    }
+
     render() {
 
 
         return (
     <Container fluid className="user-bg">
+      <div>
+        <Row>
+          {this.startTimer()}
+          Time Left:  {this.state.time.m} minutes and  {this.state.time.s} seconds
+
+
+        </Row>
+        </div>
             <Row className="justify-content-center pt-3">
               <img src={logo} className="user-logo" alt="logo"></img>
 
@@ -37,93 +118,128 @@ export class Attempt extends React.Component {
               </div>
             </Row>
             <Form>
-
-            <Row>
-                  Q1 how are you doing?      </Row>
+            {this.state.questions.slice(this.state.index, this.state.index+1).map((item, i)=>(
+              
+              <div>
+                            <Row>
+                  Q{this.state.index+1} {item.question}     </Row>
                   <Row>
-                          <Col lg="2">
+                          <Col >
                             <div className="custom-control custom-control-alternative custom-radio mb-3">
                                 <input
                                   className="custom-control-input"
-                                  id="customRadio1"
-                                  name="custom-radio-1"
+                                  id={"custom-radio-1" + this.state.index}
+                                  name={"custom-radio-" + this.state.index}
                                   type="radio"
                                 />
-                                <label className="custom-control-label" htmlFor="customRadio1">
-                                  Not so Great
+                                <label className="custom-control-label" htmlFor={"custom-radio-1" + this.state.index}>
+                                  {item.option_a}
                                 </label>
                                 </div>
                             </Col>
-                            <Col lg="2">
+                            <Col >
                             <div className="custom-control custom-control-alternative custom-radio mb-3">
                                 <input
                                   className="custom-control-input"
-                                  defaultChecked
-                                  id="customRadio2"
-                                  name="custom-radio-1"
+                                  id={"custom-radio-2" + this.state.index}
+                                  name={"custom-radio-" + this.state.index}
                                   type="radio"
                                 />     
-                                <label className="custom-control-label" htmlFor="customRadio2">
-                                  May Be a little Great
+                                <label className="custom-control-label" htmlFor={"custom-radio-2" + this.state.index}>
+                                {item.option_b}
                                 </label>
                               </div>      
                     </Col>
                 </Row>
                 <Row>
-                <Col lg="2">
+                <Col >
                             <div className="custom-control custom-control-alternative custom-radio mb-3">
                                 <input
                                   className="custom-control-input"
-                                  id="customRadio3"
-                                  name="custom-radio-1"
+                                  id={"custom-radio-3" + this.state.index}
+                                  name={"custom-radio-" + this.state.index}
                                   type="radio"
                                 />
-                                <label className="custom-control-label" htmlFor="customRadio3">
-                                  Really Great(Lie)
+                                <label className="custom-control-label" htmlFor={"custom-radio-3" + this.state.index}>
+                                {item.option_c}
                                 </label>
                                 </div>
                             </Col>
-                            <Col lg="2">
+                            <Col >
                             <div className="custom-control custom-control-alternative custom-radio mb-3">
                                 <input
                                   className="custom-control-input"
-                                  defaultChecked
-                                  id="customRadio4"
-                                  name="custom-radio-1"
+                                  id={"custom-radio-4" + this.state.index}
+                                  name={"custom-radio-" + this.state.index}
                                   type="radio"
                                 />     
-                                <label className="custom-control-label" htmlFor="customRadio4">
-                                  Lifen't
+                                <label className="custom-control-label" htmlFor={"custom-radio-4" + this.state.index}>
+                                {item.option_d}
                                 </label>
                               </div>      
                     </Col>
-
-
-
-
-                </Row>
-                <Row>
-                  Q1 How do you want to go out?      </Row>
-                  <Row>
-                      <Input
-                          id="exampleFormControlTextarea1"
-                          placeholder="Answer ..."
-                          rows="3"
-                          type="textarea"
-                        />
-                        </Row>
-            <Row>
-                  Q1 Draw your life as a form of art      </Row>
-                  <Button
+              </Row>
+   
+               </div>
+            ))}
+           
+              <Row>
+               
+                          <Button
                             color="primary"
                             href="#pablo"
-                            onClick={e => e.preventDefault()}
+                            onClick={e => {
+                              this.setState({index:0})
+                          }}
                           >
-                            Upload file
+                            Frist
                           </Button>
-                          <Row></Row>
-                          <br></br> <br></br> <br></br>
-                          <Row>
+                          &nbsp;&nbsp;
+                          <Button
+                            color="primary"
+                            href="#pablo"
+                            onClick={e => {
+                              var ind = this.state.index;
+                              if (ind > 0){
+                              this.setState({index:ind -1})
+                              }
+                            }}
+                          >
+                            Previous
+                          </Button>
+                          &nbsp;&nbsp;
+                          <Button
+                            color="primary"
+                            href="#pablo"
+                            onClick={e => {
+
+                              var ind = this.state.index;
+                              var max = this.state.questions.length - 1
+                              if (ind < max){
+                              this.setState({index:ind + 1})
+                              }
+                            }}
+                          >
+                            Next
+                          </Button>
+                          &nbsp;&nbsp;
+                          <Button
+                            color="primary"
+                            href="#pablo"
+                            onClick={e => {
+
+
+                              var max = this.state.questions.length - 1
+
+                              this.setState({index:max})
+
+                            }}
+                          >
+                            Last
+                          </Button>
+                        </Row>
+                        <br></br> <br></br>
+                        <Row>
                           <Button
                             color="primary"
                             href="#pablo"
@@ -132,6 +248,7 @@ export class Attempt extends React.Component {
                             Submit Quiz
                           </Button>
                           </Row>
+                          
           </Form>
           </Container>
         )
