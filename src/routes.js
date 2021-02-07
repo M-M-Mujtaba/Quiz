@@ -4,6 +4,7 @@ import UserHome from "views/UserHome.js";
 import AdminLogin from "views/examples/AdminLogin";
 import Quiz from "views/Quiz";
 import Question_bank from "views/Question_bank";
+import Attempt from "views/Attempt"
 
 
 var routes = [
@@ -47,5 +48,11 @@ var routes = [
     component: UserHome,
     layout: "/User",
   },
+  {
+    path: "/attempt",
+    name: "Attempt",
+    component: Attempt,
+    layout: "/User"
+  }
 ];
 export default routes;

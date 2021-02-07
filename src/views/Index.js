@@ -2,7 +2,7 @@ import React from "react";
 import Header from "components/Headers/Header.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import graph from "C:/Users/mujta/OneDrive/Documents/RugbyProject-main/src/assets/img/Extras/score.png"
+import score from "../assets/img/Extras/score.png"
 
 import Select from 'react-select';
 
@@ -53,7 +53,7 @@ class Index extends React.Component {
                     </div>
                     <br></br><br></br><br></br>
                     <h4>Average : 7.6</h4>
-                    <img src={graph} className="user-graph" alt="graph"></img>
+                    <img src={score} className="user-graph" alt="graph"></img>
                   </Col>
                   
             </Row>

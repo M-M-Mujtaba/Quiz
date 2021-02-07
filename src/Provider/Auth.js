@@ -1,7 +1,48 @@
+import  useState  from 'react';
 var _token = "";
 var _isLoggedInStat = false;
 var _isAdmin = null;
 
+
+var repos = null;
+
+
+function login_student(username, password) {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  
+  var raw = JSON.stringify({"email":"mujtaba@gmail.com","password":"12345678"});
+  
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+
+  
+  var output = fetch("http://127.0.0.1:5000/usignin", requestOptions)
+  
+  return output;
+}
+
+function handleResponse(response) {
+  var output =  response.text().then(text => {
+    const data = text && JSON.parse(text);
+    if (!response.ok) {
+        if (response.status === 401) {
+            // auto logout if 401 response returned from api
+            logout();
+        }
+
+        const error = (data && data.message) || response.statusText;
+        return Promise.reject(error);
+    }
+    console.log(data)
+    return data;
+});;
+  return output
+}
 const login = (token, isAdmin) => {
   _token = token;
   _isAdmin = isAdmin;
@@ -43,4 +84,4 @@ const getToken = () => {
   return _token;
 };
 
-export { login, logout, isLoggedIn, getToken, isAdminLogged };
+export { login, logout, isLoggedIn, getToken, isAdminLogged, login_student };

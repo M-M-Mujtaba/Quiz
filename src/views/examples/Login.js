@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from 'axios';
 // reactstrap components
 import {
   Button,
@@ -14,9 +14,10 @@ import {
   InputGroup,
   Col,
 } from "reactstrap";
-import { login } from "Provider/Auth";
+import { login, login_student } from "Provider/Auth";
 import {} from "Provider/Auth";
 import { Link } from "react-router-dom";
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class Login extends React.Component {
       userValid: "",
       passwordValid: "",
       errorText: "",
+      output:null, 
     };
     // This binding is necessary to make `this` work in the callback
     this.handleClick = this.handleClick.bind(this);
@@ -45,10 +47,61 @@ class Login extends React.Component {
         passwordValid: "",
         userValid: "",
       });
-      login("hello ballo", "false");
-      this.goToHomePage();
 
-      return;
+      
+      // var formdata = new FormData();
+      // formdata.append("email", this.state.userName);
+      // formdata.append("password", this.state.password);
+
+      // var requestOptions = {
+      //   method: 'POST',
+      //   body: formdata,
+      //   redirect: 'follow',
+      // };
+      // fetch("http://127.0.0.1:5000/usignin", requestOptions)
+      // .then((response) => response.json())
+      // .then(({ results }) => {
+      //   if(results.status){
+      //     login("hello ballo", "false");
+      //     this.goToHomePage();
+      //   }
+      //   else{
+      //     this.goToHomePage();
+      //   }
+
+
+      // });
+      var data = JSON.stringify({"email":this.state.userName,"password":this.state.password});
+
+      console.log(data)
+      var config = {
+        method: 'post',
+        url: 'http://127.0.0.1:5000/usignin',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+        data : data
+      };
+      var user = this.state.userName
+      axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        if(response.data['status']){
+          console.log(user)
+          login(user, "false");
+          window.location.href = "/";
+          console.log("here")
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+
+
+        return;
+
     }
     if (this.state.password.length === 0)
       this.setState({

@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "components/Headers/Header.js";
 import Select from 'react-select';
-import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import {
     Container,
@@ -23,7 +22,7 @@ import {
   import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 
-  const quizez = ['Quiz1  "12/09" 30 min', 'Quiz2 "17/09" 15 min', 'Quiz3 "1/10" 45 min']
+  const quizez = ['Quiz1  "12/09" 30 min', 'Quiz2 "17/09" 15 min', 'Quiz3 "11/10" 45 min']
 
   const MCQs = [  { label: "1", value: 1 },
   { label: "2", value: 2 },
@@ -41,6 +40,14 @@ import {
   { label: "3", value: 3 }, 
   { label: "4", value: 4 },
   { label: "5", value: 5 },
+]
+
+const Attach = [ 
+  { label: "1", value: 1 },
+{ label: "2", value: 2 },
+{ label: "3", value: 3 }, 
+{ label: "4", value: 4 },
+{ label: "5", value: 5 },
 ]
 
 const Easy = [{ label: "1", value: 1 },
@@ -161,7 +168,7 @@ export class Quiz extends React.Component {
             <CardText>
             
             {quizez.map((quizez) =>
-                <li>{quizez}    <EditIcon style={{ color: 'yellow' }}/>  <RemoveCircleIcon style={{ color: 'red' }}/></li>
+                <li>{quizez}  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; <EditIcon style={{ color: 'yellow' }}/> &nbsp; &nbsp;  <RemoveCircleIcon style={{ color: 'red' }}/></li>
             )}
             </CardText>
            
@@ -177,6 +184,9 @@ export class Quiz extends React.Component {
             Subjective
             <Select options = {Sub}  />
             <br></br><br></br>
+            Attachments
+            <Select options = {Attach}  />
+            <br></br><br></br>
             </div>
             <label for="Quizday">Quizday:</label>
                 <input type="date" id="quizday" name="quizday"/>
@@ -184,7 +194,6 @@ export class Quiz extends React.Component {
                 <form action="/action_page.php">
                     <label for="appt">Select a time:</label>
                     <input type="time" id="appt" name="appt"/>
-                    <input type="submit" value="Submit"/>
                 </form>
         </Col>
         <Col lg="4" xl ="4" md="6" xs="12">
@@ -204,7 +213,13 @@ export class Quiz extends React.Component {
             <br></br>
         </div>
 
-        <button>Assign Quiz</button>
+        <Button
+              color="primary"
+              href="#pablo"
+              onClick={e => e.preventDefault()}
+            >
+              Assign Quiz
+            </Button>
         
         </Col>
       </Row>
