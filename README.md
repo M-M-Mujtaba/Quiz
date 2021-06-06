@@ -17,9 +17,9 @@ Install my-project with npm
 ## Demo
 
 
-![Video Demo](se_proj.mp4?raw=true "Project Video")
+[Video Demo](se_proj.mp4?raw=true "Project Video")
 
-![Interactive Demo](https://se-react-quiz-app.herokuapp.com/ "Project Demo")
+[Interactive Demo](https://se-react-quiz-app.herokuapp.com/ "Project Demo")
 ## Lessons Learned
 
 This was one of the most challanging project for me, since I had no experince with Frontend therefore
